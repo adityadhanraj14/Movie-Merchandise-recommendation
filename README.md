@@ -4,7 +4,8 @@ Movie&Merch is a full-stack movie streaming web application that not only lets y
 
 ---
 
-![Movie&Merch Screenshot](https://github.com/user-attachments/assets/eff74f6e-03f9-4ea8-be58-96c84340e40d)
+# Demo video
+https://github.com/user-attachments/assets/eff74f6e-03f9-4ea8-be58-96c84340e40d
 
 ---
 
