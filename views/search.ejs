@@ -1,0 +1,39 @@
+<%- include('layouts/header') %>
+
+<div class="mb-6">
+    <h2 class="text-2xl font-bold">Search Results for "<%= searchQuery %>"</h2>
+</div>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    <% if (movies.length === 0) { %>
+        <div class="col-span-full text-center py-8">
+            <p class="text-gray-400">No movies found matching your search.</p>
+        </div>
+    <% } else { %>
+        <% movies.forEach(movie => { %>
+            <div class="relative group">
+                <div class="aspect-w-2 aspect-h-3 rounded-lg overflow-hidden">
+                    <img 
+                        src="<%= movie.thumbnailURL %>" 
+                        alt="<%= movie.title %>"
+                        class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-200"
+                    >
+                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                        <div class="absolute bottom-0 p-4 w-full">
+                            <h3 class="text-lg font-semibold"><%= movie.title %></h3>
+                            <p class="text-sm text-gray-300"><%= movie.genre %> • <%= movie.year %></p>
+                            <a 
+                                href="/movie/<%= movie._id %>" 
+                                class="mt-2 inline-block px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors duration-200"
+                            >
+                                Watch Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+    <% } %>
+</div>
+
+<%- include('layouts/footer') %>
